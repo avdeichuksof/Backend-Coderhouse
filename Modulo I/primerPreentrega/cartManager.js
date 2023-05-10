@@ -60,6 +60,7 @@ class CartManager {
             if(productFound){
                 //si existe aumentamos la cantidad
                 productFound.quantity ++
+                this.#write()
                 console.log('Product added successfully')
                 return productFound
             }else{
