@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Pop Art Bojack",
+    "description": "Cuadro de Bojack Horseman en estilo Pop Art",
+    "price": 2500,
+    "thumbnail": "no image",
+    "code": "anim3",
+    "stock": 10,
+    "status": true,
+    "category": "cinema",
+    "id": "c4879ad2-bb0f-49fd-8ff8-c3fb4708054c"
+  },
+  {
+    "title": "Anakin|Vader",
+    "description": "Cuadro de Anakin y Darth Vader",
+    "price": 20000,
+    "thumbnail": "no image",
+    "code": "cinema7",
+    "stock": 2,
+    "status": true,
+    "category": "cinema",
+    "id": "55f57e50-4b46-4363-89ea-96dfc8cd2191"
+  },
+  {
+    "title": "Minion Lisa",
+    "description": "Cuadro de un minion pintado como la Mona Lisa",
+    "price": 8000,
+    "thumbnail": "no image",
+    "code": "classic1",
+    "stock": 5,
+    "status": true,
+    "category": "classic",
+    "id": "2b2e4ee3-f365-4775-9b88-99e27f4ed529"
+  },
+  {
+    "title": "Meyeshroom",
+    "description": "Cuadro de un hongo transformándose en un ojo",
+    "price": 6000,
+    "thumbnail": "no image",
+    "code": "varios1",
+    "stock": 3,
+    "status": true,
+    "category": "various",
+    "id": "9c605452-8d28-4cb0-a124-aff986f38db1"
+  },
+  {
+    "title": "Martini?",
+    "description": "Cuadro de un martini",
+    "price": 10000,
+    "thumbnail": "no image",
+    "code": "realistic1",
+    "stock": 4,
+    "status": true,
+    "category": "realistic",
+    "id": "f635844e-adc8-4d4a-9728-ca307dc7185f"
+  },
+  {
+    "title": "Lil Cake",
+    "description": "Cuadro de una porción de torta",
+    "price": 8000,
+    "thumbnail": "no image",
+    "code": "realistic8",
+    "stock": 2,
+    "status": true,
+    "category": "realistic",
+    "id": "f0015af1-c509-42f7-b259-b7434b1d9958"
+  },
+  {
+    "title": "Floweggs",
+    "description": "Cuadro de flores con forma de huevo",
+    "price": 8000,
+    "thumbnail": "no image",
+    "code": "flowers6",
+    "stock": 2,
+    "status": true,
+    "category": "flowery",
+    "id": "ab2809ff-435f-41d3-915b-a5c9bdc23dc3"
+  },
+  {
+    "title": "Geometric woman",
+    "description": "Cuadro geométrico de una mujer",
+    "price": 4000,
+    "thumbnail": "no image",
+    "code": "geo1",
+    "stock": 6,
+    "status": true,
+    "category": "geometric",
+    "id": "b74d05d2-207e-4321-87d2-098ba07eea79"
+  },
+  {
+    "title": "Canserbero",
+    "description": "Cuadro de Canserbero",
+    "price": 10000,
+    "thumbnail": "no image",
+    "code": "artist5",
+    "stock": 3,
+    "status": true,
+    "category": "artists",
+    "id": "d409f4ee-eeb3-4094-aafc-23b57a9be071"
+  },
+  {
+    "title": "Coffee time",
+    "description": "Cuadro estilo Oneline de una Cafetera",
+    "price": 3500,
+    "thumbnail": "no image",
+    "code": "oneline3",
+    "stock": 5,
+    "status": true,
+    "category": "oneline",
+    "id": "f411b7e0-0f85-4802-b304-a3e421e21e67"
+  }
+]
