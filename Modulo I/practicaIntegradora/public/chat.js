@@ -4,6 +4,12 @@ socket.on('all-messages', (data) => {
     render(data)
 })
 
+const chat = document.getElementById('chat')
+chat.addEventListener('submit', (e) => {
+    e.preventDefault()
+    chat.reset()
+})
+
 function render(data){
     const html = data.map(el => {
         return (`
@@ -23,6 +29,7 @@ function addMessage(){
         user: document.getElementById('userEmail').value,
         message: document.getElementById('text').value
     }
+    console.log(message)
     socket.emit('newMessage', message)
     return false
 }
