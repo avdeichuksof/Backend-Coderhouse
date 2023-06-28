@@ -5,7 +5,7 @@ class CartController{
         this.path = path
     }
 
-    async getCarts(req, res){
+    async getCarts(){
         try{
             return (
                 await Cart.find({})
@@ -39,16 +39,18 @@ class CartController{
         try{
             let cart = await this.getCartById(cartId)
             
-            const productFound = cart.products.find(product => product._id === prodId)
+            const productFound = cart.products.find(item => item.product.toString() === prodId)
 
             if(productFound){
-                cart.products[productFound].quantity = quantity++
-                await cart.save()
-                return ({message:'Product added to cart'}, productFound)
+                await Cart.updateOne(
+                    {_id: cartId, 'products.product': prodId},
+                    {$inc: {'products.$.quantity': 1}}
+                )
+                return ({message:'Product quantity increased'})
             }else{
-                cart.products.push({product: prodId, quantity: 1})
-                await cart.save()
-                return ({message:'Product added to cart'}, productFound)
+                const addProd = {$push:{products:{product: prodId, quantity: 1}}}
+                await Cart.updateOne({_id: cartId}, addProd)
+                return ({message:'Product added to cart'})
             }
         }catch(err){
             console.log(err)
@@ -63,9 +65,11 @@ class CartController{
                 const productFound = cartFound.products.find((product) => product.product.toString() === prodId)
 
                 if(productFound){
-                    productFound.quantity = newQuantity
-                    await cartFound.save()
-                    return productFound
+                    await Cart.updateOne(
+                        {_id: cartId, 'products.product': prodId},
+                        {$set: {'products.$.quantity': newQuantity}}
+                    )
+                    return ({message: 'Quantity updated'})
                 }else{
                     console.log('Product not found')
                 }
