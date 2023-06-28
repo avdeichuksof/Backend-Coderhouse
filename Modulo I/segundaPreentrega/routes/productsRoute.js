@@ -7,14 +7,9 @@ const Product = require('../dao/models/productModel')
 
 
 router.get('/', async(req, res) => {
-
-    const filter = req.query.filter
-    const limit = req.query.limit
-    const page = req.query.page
-    const sort = req.query.sort
-
+    const {query, limit, page} = req.query
     try{
-        const data = await productManager.getProducts(filter, limit, page, sort)
+        const data = await productManager.getProducts(query, limit, page)
 
         return res.status(200).json({
             status: 'success',
@@ -26,17 +21,11 @@ router.get('/', async(req, res) => {
             hasPrevPage: data.hasPrevPage,
             hasNextPage: data.hasNextPage,
             prevLink: data.hasPrevPage ? `http://localhost:8080/api/products/?page=${data.prevPage}` : null,
-            nextLink: data.hasNestPage ? `http://localhost:8080/api/products/?page=${data.nextPage}` : null,
+            nextLink: data.hasNextPage ? `http://localhost:8080/api/products/?page=${data.nextPage}` : null,
         })
     }catch(err){
         console.log(err)
     }
-    /* await productManager.getProducts()
-        .then(products => {
-            if(products.length) return res.status(200).send({data: products})
-            return res.status(204).send({message: 'Data not found'})
-        })
-        .catch(err => res.status(500).send({err})) */
 })
 
 router.get('/:id', (req, res) => {
