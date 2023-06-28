@@ -5,8 +5,8 @@ const ProductController = require('../dao/mongoManagers/productController')
 const productManager = new ProductController()
 
 router.get('/', async (req, res) => {
-    const {filter, limit, page, asc, desc} = req.query
-    const data = await productManager.getProducts(filter, page, limit, asc, desc)
+    const {query, limit, page} = req.query
+    const data = await productManager.getProducts(query, limit, page)
 
     let products = data.docs.map((product) => {
         return { title: product.title,
@@ -25,10 +25,10 @@ router.get('/', async (req, res) => {
     let links = []
 
     for(let i = 1; i < rest.totalPages + 1; i++){
-        links.push({label: i, href: 'http://localhost:8080/?page=' + i})
+        links.push({label: i, href: 'http://localhost:8080/index/?page=' + i})
     }
 
-    return res.status(200).render('index', {products, pagination: rest, links})
+    return res.status(200).render('index', {products: products, pagination: rest, links})
 })
 
 module.exports = router
