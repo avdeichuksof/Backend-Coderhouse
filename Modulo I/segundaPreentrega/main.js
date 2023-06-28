@@ -38,11 +38,11 @@ app.engine('handlebars', handlebars.engine())
 app.set('view engine', 'handlebars')
 app.set('views', __dirname + '/views')
 
-app.use('/', indexRoute)
-app.use('/chat', chatRoute)
-app.use('/api/carts', cartsRoute)
-app.use('/api/products', productsRoute)
-app.use('/realtimeproducts', realTimeRoute)
+app.use('/index', indexRoute) // muestra todos los productos
+app.use('/chat', chatRoute) // muestra el chat
+app.use('/api/carts', cartsRoute) // manejador de carritos
+app.use('/api/products', productsRoute) // manejador de productos
+app.use('/realtimeproducts', realTimeRoute) // agregar y eliminar productos en tiempo real
 
 
 // sockets
@@ -76,7 +76,6 @@ io.on('connection', async (socket) => {
         io.sockets.emit('all-messages', messages)
     })
 })
-
 
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
