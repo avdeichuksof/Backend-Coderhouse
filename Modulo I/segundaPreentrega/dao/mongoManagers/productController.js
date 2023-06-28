@@ -5,16 +5,15 @@ class ProductController{
         this.path = path
     }
 
-    getProducts = async (filter, limit, page, sort) => {
+    getProducts = async (query, limit, page) => {
         try{
+            const filter = query ? {category: query} : {} 
             const options = {
-                limit: limit || 6,
-                page: page || 1,
-                sort: sort|| {}
+                limit: limit || 4,
+                page: page || 1
             }
-            const query = {category: filter}
-            const products = await Product.paginate(query, options)
-            return products 
+            const products = await Product.paginate(filter, options)
+            return products
         }catch(err){
             console.log(err)
         }
@@ -22,7 +21,7 @@ class ProductController{
     
     getProductById(id) {
         try{
-            const productFound = Product.findOne({_id: id})
+            const productFound = Product.findOne({_id: id}).lean
             return productFound
         }catch(err){
             console.log(err, {message: 'Product not found'})
